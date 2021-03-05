@@ -1,0 +1,127 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: Space Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* Layout */
+
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1120px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main div {
+  width: 48%;
+  min-width: 350px;
+}
+
+main #img {
+  display: grid;
+  place-items: center;
+}
+
+footer {
+  text-align: center;
+}
+
+footer span {
+  margin: 24px;
+  display: inline-block;
+}
+
+.header-title {
+  font-family: Inconsolata;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 25px;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  margin: 40px 0;
+}
+
+#scarecrow {
+  width: 100%;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 95px;
+  letter-spacing: -0.035em;
+  margin: 0 0 40px 0;
+}
+
+.subtitle {
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: -0.035em;
+  color: #4f4f4f;
+}
+
+#back-to-homepage {
+  background: #333;
+  margin-top: 40px;
+  color: white;
+  display: block;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 216px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.035em;
+}
+
+#back-to-homepage:hover {
+  background-color: #444;
+}
+
+#back-to-homepage:active {
+  background-color: black;
+}
+
+@media screen and (max-width: 740px) {
+  .title {
+    font-size: 48px;
+    line-height: 71px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    line-height: 27px;
+  }
+  main {
+    justify-content: center;
+  }
+}
