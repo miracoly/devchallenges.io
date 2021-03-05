@@ -8,11 +8,11 @@ You find all challenges on [devchallengs.io](https://devchallenges.io)
 
 This path has eight challenges.
 
-- [] 404 Not Found
-- [] My team page
-- [] Interior Consultant
-- [] Recipe Page
-- [] My Gallery
-- [] Checkout Page
-- [] Edie homepage
-- [] Portfolio
+- [x] 404 Not Found
+- [ ] My team page
+- [ ] Interior Consultant
+- [ ] Recipe Page
+- [ ] My Gallery
+- [ ] Checkout Page
+- [ ] Edie homepage
+- [ ] Portfolio
