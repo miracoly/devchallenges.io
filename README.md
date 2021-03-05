@@ -8,7 +8,7 @@ You find all challenges on [devchallengs.io](https://devchallenges.io)
 
 This path has eight challenges.
 
-- [ ] 404 Not Found - [Code](./responsive-web-developer/404-not-found-master/) | [Demo](#)
+- [x] 404 Not Found - [Code](./responsive-web-developer/404-not-found-master/) | [Demo](https://miracoly.github.io/devchallenges.io/responsive-web-developer/404-not-found-master/index.html)
 - [ ] My team page
 - [ ] Interior Consultant
 - [ ] Recipe Page
