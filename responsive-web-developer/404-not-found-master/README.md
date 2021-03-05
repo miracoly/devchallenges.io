@@ -35,7 +35,7 @@
 
 ## Overview
 
-![screenshot](./demo-preview-404-page.png)
+[![screenshot](./demo-preview-404-page.png)](https://miracoly.github.io/devchallenges.io/responsive-web-developer/404-not-found-master/index.html)
 
 **Challenge:** Create a 404 not found page following the design. The page should be responsive. Don’t look at the existing solution. Fulfill user stories below:
 
