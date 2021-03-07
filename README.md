@@ -16,3 +16,16 @@ This path has eight challenges.
 - [ ] Checkout Page
 - [ ] Edie homepage
 - [ ] Portfolio
+
+## Front-End Developer
+
+This path has eight challenges
+
+- [ ] Button Component
+- [ ] Input Component
+- [ ] Windbnb
+- [ ] ToDo App
+- [ ] Random Quote Generator
+- [ ] Country Quiz
+- [ ] Weather App
+- [ ] Github Jobs
