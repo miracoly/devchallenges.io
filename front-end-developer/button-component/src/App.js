@@ -8,11 +8,11 @@ const App = () => (
       <p>{"<Button />"}</p> <Button>Default</Button>
     </div>
     <div className="button-container">
-      <p>{"<Button variant=”outline” />"}</p>
+      <p>{"<Button variant='outline' />"}</p>
       <Button variant="outline">Default</Button>
     </div>
     <div className="button-container">
-      <p>{"<Button variant=”text” />"}</p>
+      <p>{"<Button variant='text' />"}</p>
       <Button variant="text">Default</Button>
     </div>
     <div className="button-container">
@@ -21,7 +21,22 @@ const App = () => (
     </div>
     <div className="button-container">
       <p>{"<Button disabled />"}</p>
-      <Button disabled>Default</Button>
+      <Button disabled>Disabled</Button>
+    </div>
+    <div className="button-container">
+      <p>{"<Button variant='text'  disabled />"}</p>
+      <Button variant="text" disabled>
+        Disabled
+      </Button>
+    </div>
+    <div className="button-container">
+      <p>{"<Button size='sm' />"}</p> <Button size="sm">Default</Button>
+    </div>
+    <div className="button-container">
+      <p>{"<Button size='md' />"}</p> <Button size="md">Default</Button>
+    </div>
+    <div className="button-container">
+      <p>{"<Button size='lg' />"}</p> <Button size="lg">Default</Button>
     </div>
   </div>
 );

@@ -56,3 +56,17 @@
   pointer-events: none;
   color: #9e9e9e;
 }
+
+/* Button Size */
+.size-sm {
+  padding: 6px 12px;
+}
+
+.size-md {
+  /* default */
+  padding: 8px 16px;
+}
+
+.size-lg {
+  padding: 11px 22px;
+}
