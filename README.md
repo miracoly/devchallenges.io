@@ -21,7 +21,7 @@ This path has eight challenges.
 
 This path has eight challenges
 
-- [x] Button Component [Code](./front-end-developer/button-component/) | [Demo](https://miracoly.github.io/devchallenges.io/front-end-developer/button-component/build/index.html)
+- [x] Button Component - [Code](./front-end-developer/button-component/) | [Demo](https://miracoly.github.io/devchallenges.io/front-end-developer/button-component/build/index.html)
 - [ ] Input Component
 - [ ] Windbnb
 - [ ] ToDo App
