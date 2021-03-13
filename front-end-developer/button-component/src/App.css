@@ -18,3 +18,26 @@ main {
 .button-container p {
   font-size: 12px;
 }
+
+footer {
+  text-align: center;
+}
+
+footer span {
+  margin: 24px;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  line-height: 17px;
+  color: #bdbdbd;
+}
+
+footer a {
+  text-decoration: none;
+  color: #bdbdbd;
+}
+
+footer .bold {
+  font-weight: 700;
+}
