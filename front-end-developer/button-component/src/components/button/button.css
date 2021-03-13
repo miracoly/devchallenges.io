@@ -45,3 +45,14 @@
 .text:focus {
   background: rgba(41, 98, 255, 0.1);
 }
+
+/* Disable Shadow */
+.disable-shadow {
+  box-shadow: none;
+}
+
+/* Disable Button */
+.disabled {
+  pointer-events: none;
+  color: #9e9e9e;
+}

@@ -15,6 +15,14 @@ const App = () => (
       <p>{"<Button variant=”text” />"}</p>
       <Button variant="text">Default</Button>
     </div>
+    <div className="button-container">
+      <p>{"<Button disableShadow />"}</p>
+      <Button disableShadow>Default</Button>
+    </div>
+    <div className="button-container">
+      <p>{"<Button disabled />"}</p>
+      <Button disabled>Default</Button>
+    </div>
   </div>
 );
 
