@@ -70,3 +70,67 @@
 .size-lg {
   padding: 11px 22px;
 }
+
+/* Button colors */
+.default {
+  background-color: #e0e0e0;
+  color: #3f3f3f;
+}
+
+.default:hover,
+.default:focus {
+  background-color: #aeaeae;
+}
+
+.primary {
+  background-color: #2962ff;
+  color: white;
+}
+
+.primary:hover,
+.primary:focus {
+  background-color: #0039cb;
+}
+
+.secondary {
+  background-color: #455a64;
+  color: white;
+}
+
+.secondary:hover,
+.secondary:focus {
+  background-color: #1c313a;
+}
+
+.danger {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.danger:hover,
+.danger:focus {
+  background-color: #9a0007;
+}
+
+/* Icons */
+.icon::before {
+  display: inline-block;
+  font-style: solid;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.start-icon.local_grocery_store::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f07a";
+  padding-right: 10px;
+}
+
+.end-icon.local_grocery_store::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f07a";
+  padding-left: 10px;
+}
