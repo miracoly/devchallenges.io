@@ -1,4 +1,3 @@
-import util from "util";
 import Input from "./Input";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";

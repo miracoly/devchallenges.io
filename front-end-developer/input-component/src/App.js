@@ -4,7 +4,8 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Input id="default" />
+      <Input>{"<Input />"}</Input>
+      <Input error>{"<Input error />"}</Input>
     </div>
   );
 }
