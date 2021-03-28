@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+/* Colors */
+const colors = {
+  primary: "#333333",
+  seconday: "#2962FF",
+  error: "#D32F2F",
+  gray: "#828282",
+};
+
 const StyledLabel = styled.label.attrs((props) => ({
   htmlFor: props.htmlFor,
   "data-testid": "label",
@@ -11,21 +19,19 @@ const StyledLabel = styled.label.attrs((props) => ({
 
 const StyledInput = styled.input.attrs((props) => ({
   id: props.id,
-  placeholder: "placeholder",
+  placeholder: "Placeholder",
   disabled: props.disabled,
 }))`
-  min-width: 200px;
+  min-width: 250px;
+  box-sizing: border-box;
   padding: 18px 12px;
+  padding-left: ${(props) => (props.paddingLeft ? "38px" : "12px")};
   border: 1px solid;
-  ${"" /* border-color: ${(props) => (props.error ? "#D32F2F" : "#828282")}; */}
   border-radius: 8px;
   font-size: 14px;
   outline: none;
-  &:hover {
-    border-color: #333333;
-  }
   &:focus {
-    border-color: ${(props) => (props.error ? "#D32F2F" : "#2962FF")};
+    border-color: ${(props) => (props.error ? colors.error : colors.seconday)};
   }
 `;
 
@@ -35,19 +41,39 @@ const StyledHelperText = styled.span`
   font-size: 12px;
 `;
 
+const StartIcon = styled.span.attrs({
+  className: "material-icons",
+})`
+  font-size: 18px;
+  color: ${colors.gray};
+  position: absolute;
+  top: 18px;
+  left: 12px;
+`;
+
+const IconContainer = styled.div`
+  position: relative;
+`;
+
 const Container = styled.div`
   margin: 30px;
   width: fit-content;
   text-align: left;
-  color: ${(props) => (props.error ? "#D32F2F" : "#333333")};
+  color: ${(props) => (props.error ? colors.error : colors.primary)};
   & input {
-    border-color: ${(props) => (props.error ? "#D32F2F" : "#828282")};
+    border-color: ${(props) => (props.error ? colors.error : colors.gray)};
   }
   &:hover {
-    color: #333333;
+    color: ${colors.primary};
     & input {
-      border-color: #333333;
+      border-color: ${colors.primary};
     }
+  }
+  & input:focus {
+    & {
+      color: ${(props) => (props.error ? colors.error : colors.seconday)};
+    }
+    border-color: ${(props) => (props.error ? colors.error : colors.seconday)};
   }
 `;
 
@@ -58,14 +84,22 @@ const getRandomInt = (min, max) => {
 };
 
 const Input = (props) => {
-  const { children, error, disabled, helperText } = props;
+  const { children, error, disabled, helperText, startIcon } = props;
   const id = getRandomInt(10000000, 99999999);
   return (
     <Container error={error}>
       <StyledLabel error={error} htmlFor={id}>
         {children}
       </StyledLabel>
-      <StyledInput error={error} disabled={disabled} id={id} />
+      <IconContainer>
+        <StyledInput
+          paddingLeft={startIcon}
+          error={error}
+          disabled={disabled}
+          id={id}
+        />
+        {startIcon ? <StartIcon>{startIcon}</StartIcon> : null}
+      </IconContainer>
       {helperText ? (
         <StyledHelperText error={error}>{helperText}</StyledHelperText>
       ) : null}

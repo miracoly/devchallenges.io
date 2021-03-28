@@ -31,7 +31,7 @@ test("Display helper text", () => {
 });
 
 test("Display start Icon", () => {
-  render(<Input startIcon />);
+  render(<Input startIcon="face" />);
   const input = screen.getByRole("textbox");
   const label = screen.getByTestId("label");
   const icon = screen.getByText("face");

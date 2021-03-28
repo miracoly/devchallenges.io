@@ -13,6 +13,10 @@ function App() {
       <Input error helperText="Some interesting text">
         {"<Input error helperText='Some interesting text' />"}
       </Input>
+      <Input startIcon="face">{"<Input startIcon='face' />"}</Input>
+      <Input error startIcon="add_task">
+        {"<Input error startIcon='add_task' />"}
+      </Input>
     </div>
   );
 }
