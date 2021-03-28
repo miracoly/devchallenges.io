@@ -6,6 +6,7 @@ function App() {
     <div className="App">
       <Input>{"<Input />"}</Input>
       <Input error>{"<Input error />"}</Input>
+      <Input disabled>{"<Input disabled />"}</Input>
     </div>
   );
 }

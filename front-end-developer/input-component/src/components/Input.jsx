@@ -13,6 +13,7 @@ const StyledLabel = styled.label.attrs((props) => ({
 const StyledInput = styled.input.attrs((props) => ({
   id: props.id,
   placeholder: "placeholder",
+  disabled: props.disabled,
 }))`
   min-width: 200px;
   padding: 18px 12px;
@@ -40,14 +41,14 @@ const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min) + min);
 };
 
-const Input = ({ error, children }) => {
+const Input = ({ error, disabled, children }) => {
   const id = getRandomInt(10000000, 99999999);
   return (
     <Container>
       <StyledLabel error={error} htmlFor={id}>
         {children}
       </StyledLabel>
-      <StyledInput error={error} id={id} />
+      <StyledInput error={error} disabled={disabled} id={id} />
     </Container>
   );
 };
