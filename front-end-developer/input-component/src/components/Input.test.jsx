@@ -29,3 +29,13 @@ test("Display helper text", () => {
   expect(input.placeholder).not.toBe("");
   expect(helperText).toBeDefined();
 });
+
+test("Display start Icon", () => {
+  render(<Input startIcon />);
+  const input = screen.getByRole("textbox");
+  const label = screen.getByTestId("label");
+  const icon = screen.getByText("face");
+  expect(label).toBeDefined();
+  expect(input.placeholder).not.toBe("");
+  expect(icon).toBeDefined();
+});
