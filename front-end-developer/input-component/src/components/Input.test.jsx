@@ -9,3 +9,12 @@ test("Displays plain Input with label and placeholder", () => {
   expect(label).toBeDefined();
   expect(input.placeholder).not.toBe("");
 });
+
+test("Display disabled Input", () => {
+  render(<Input disabled />);
+  const input = screen.getByRole("textbox");
+  const label = screen.getByTestId("label");
+  expect(label).toBeDefined();
+  expect(input.placeholder).not.toBe("");
+  expect(input).toBeDisabled();
+});

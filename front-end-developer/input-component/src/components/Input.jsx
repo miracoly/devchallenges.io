@@ -5,6 +5,7 @@ const StyledLabel = styled.label.attrs((props) => ({
   "data-testid": "label",
 }))`
   font-size: 12px;
+  color: ${(props) => (props.error ? "#D32F2F" : "#333333")};
   display: block;
   margin-bottom: 4px;
 `;
@@ -43,7 +44,9 @@ const Input = ({ error, children }) => {
   const id = getRandomInt(10000000, 99999999);
   return (
     <Container>
-      <StyledLabel htmlFor={id}>{children}</StyledLabel>
+      <StyledLabel error={error} htmlFor={id}>
+        {children}
+      </StyledLabel>
       <StyledInput error={error} id={id} />
     </Container>
   );
