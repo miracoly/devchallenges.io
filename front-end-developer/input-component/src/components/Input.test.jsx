@@ -18,3 +18,14 @@ test("Display disabled Input", () => {
   expect(input.placeholder).not.toBe("");
   expect(input).toBeDisabled();
 });
+
+test("Display helper text", () => {
+  const text = "Some interesting Text";
+  render(<Input helperText={text} />);
+  const input = screen.getByRole("textbox");
+  const label = screen.getByTestId("label");
+  const helperText = screen.getByText(text);
+  expect(label).toBeDefined();
+  expect(input.placeholder).not.toBe("");
+  expect(helperText).toBeDefined();
+});
