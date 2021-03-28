@@ -49,3 +49,11 @@ test("Display end Icon", () => {
   expect(input.placeholder).not.toBe("");
   expect(icon).toBeDefined();
 });
+
+test("Display value text", () => {
+  render(<Input value="Text" />);
+  const input = screen.getByDisplayValue("Text");
+  const label = screen.getByTestId("label");
+  expect(label).toBeDefined();
+  expect(input).toBeDefined();
+});
