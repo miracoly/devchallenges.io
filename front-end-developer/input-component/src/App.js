@@ -17,8 +17,16 @@ function App() {
       <Input error startIcon="add_task">
         {"<Input error startIcon='add_task' />"}
       </Input>
-      <Input endIcon="face">{"<Input endIcon='face' />"}</Input>
+      <Input endIcon="circle_notifications">
+        {"<Input endIcon='circle_notifications' />"}
+      </Input>
       <Input value="Text">{"<Input value='Text' />"}</Input>
+      <Input size="sm">{"<Input size='sm' />"}</Input>
+      <Input size="md">{"<Input size='md' />"}</Input>
+      <Input fullWidth>{"<Input fullWidth />"}</Input>
+      <Input multiLine row="4">
+        {"<Input multiLine row='4' />"}
+      </Input>
     </div>
   );
 }

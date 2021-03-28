@@ -23,8 +23,30 @@ const StyledInput = styled.input.attrs((props) => ({
   disabled: props.disabled,
 }))`
   min-width: 250px;
+  width: ${(props) => (props.fullWidth ? "100%" : "fit-content")};
   box-sizing: border-box;
-  padding: 18px 12px;
+  padding: ${(props) => (props.size === "sm" ? "10px 12px" : "18px 12px")};
+  padding-left: ${(props) => (props.paddingLeft ? "38px" : "12px")};
+  padding-right: ${(props) => (props.paddingRight ? "38px" : "12px")};
+  border: 1px solid;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  &:focus {
+    border-color: ${(props) => (props.error ? colors.error : colors.seconday)};
+  }
+`;
+
+const StyledTextarea = styled.textarea.attrs((props) => ({
+  id: props.id,
+  rows: props.row,
+  placeholder: "Placeholder",
+  disabled: props.disabled,
+}))`
+  min-width: 250px;
+  width: ${(props) => (props.fullWidth ? "100%" : "fit-content")};
+  box-sizing: border-box;
+  padding: ${(props) => (props.size === "sm" ? "10px 12px" : "18px 12px")};
   padding-left: ${(props) => (props.paddingLeft ? "38px" : "12px")};
   padding-right: ${(props) => (props.paddingRight ? "38px" : "12px")};
   border: 1px solid;
@@ -68,7 +90,8 @@ const IconContainer = styled.div`
 
 const Container = styled.div`
   margin: 30px;
-  width: fit-content;
+  display: border-box;
+  width: ${(props) => (props.fullWidth ? "auto" : "fit-content")};
   text-align: left;
   color: ${(props) => (props.error ? colors.error : colors.primary)};
   & input {
@@ -96,27 +119,47 @@ const Input = (props) => {
   const {
     children,
     value,
+    size,
     error,
     disabled,
     helperText,
     startIcon,
     endIcon,
+    fullWidth,
+    multiLine,
+    row,
   } = props;
   const id = getRandomInt(10000000, 99999999);
   return (
-    <Container error={error}>
+    <Container error={error} fullWidth={fullWidth}>
       <StyledLabel error={error} htmlFor={id}>
         {children}
       </StyledLabel>
       <IconContainer>
-        <StyledInput
-          paddingLeft={startIcon}
-          paddingRight={endIcon}
-          error={error}
-          disabled={disabled}
-          id={id}
-          value={value}
-        />
+        {multiLine ? (
+          <StyledTextarea
+            paddingLeft={startIcon}
+            paddingRight={endIcon}
+            error={error}
+            disabled={disabled}
+            id={id}
+            value={value}
+            size={size}
+            fullWidth={fullWidth}
+            row={row}
+          />
+        ) : (
+          <StyledInput
+            paddingLeft={startIcon}
+            paddingRight={endIcon}
+            error={error}
+            disabled={disabled}
+            id={id}
+            value={value}
+            size={size}
+            fullWidth={fullWidth}
+          />
+        )}
         {startIcon ? <StartIcon>{startIcon}</StartIcon> : null}
         {endIcon ? <EndIcon>{endIcon}</EndIcon> : null}
       </IconContainer>
