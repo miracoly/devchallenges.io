@@ -7,6 +7,12 @@ function App() {
       <Input>{"<Input />"}</Input>
       <Input error>{"<Input error />"}</Input>
       <Input disabled>{"<Input disabled />"}</Input>
+      <Input helperText="Some interesting text">
+        {"<Input helperText='Some interesting text' />"}
+      </Input>
+      <Input error helperText="Some interesting text">
+        {"<Input error helperText='Some interesting text' />"}
+      </Input>
     </div>
   );
 }
