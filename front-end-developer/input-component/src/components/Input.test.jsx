@@ -1,9 +1,12 @@
+import util from "util";
 import Input from "./Input";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
-test("Displays plain Input with default placeholder", () => {
+test("Displays plain Input with label and placeholder", () => {
   render(<Input />);
   const input = screen.getByRole("textbox");
-  expect(input.placeholder).toBe("placeholder");
+  const label = screen.getByTestId("label");
+  expect(label).toBeDefined();
+  expect(input.placeholder).not.toBe("");
 });

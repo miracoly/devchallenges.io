@@ -4,10 +4,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <div className="button-container">
-        <p>{"<Button disabled />"}</p>
-        <Input></Input>
-      </div>
+      <Input id="default" />
     </div>
   );
 }
