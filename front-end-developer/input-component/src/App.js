@@ -17,6 +17,7 @@ function App() {
       <Input error startIcon="add_task">
         {"<Input error startIcon='add_task' />"}
       </Input>
+      <Input endIcon="face">{"<Input startIcon='face' />"}</Input>
     </div>
   );
 }

@@ -26,6 +26,7 @@ const StyledInput = styled.input.attrs((props) => ({
   box-sizing: border-box;
   padding: 18px 12px;
   padding-left: ${(props) => (props.paddingLeft ? "38px" : "12px")};
+  padding-right: ${(props) => (props.paddingRight ? "38px" : "12px")};
   border: 1px solid;
   border-radius: 8px;
   font-size: 14px;
@@ -39,6 +40,16 @@ const StyledHelperText = styled.span`
   display: block;
   margin-top: 4px;
   font-size: 12px;
+`;
+
+const EndIcon = styled.span.attrs({
+  className: "material-icons",
+})`
+  font-size: 18px;
+  color: ${colors.gray};
+  position: absolute;
+  top: 18px;
+  right: 12px;
 `;
 
 const StartIcon = styled.span.attrs({
@@ -82,7 +93,7 @@ const getRandomInt = (min, max) => {
 };
 
 const Input = (props) => {
-  const { children, error, disabled, helperText, startIcon } = props;
+  const { children, error, disabled, helperText, startIcon, endIcon } = props;
   const id = getRandomInt(10000000, 99999999);
   return (
     <Container error={error}>
@@ -92,11 +103,13 @@ const Input = (props) => {
       <IconContainer>
         <StyledInput
           paddingLeft={startIcon}
+          paddingRight={endIcon}
           error={error}
           disabled={disabled}
           id={id}
         />
         {startIcon ? <StartIcon>{startIcon}</StartIcon> : null}
+        {endIcon ? <EndIcon>{endIcon}</EndIcon> : null}
       </IconContainer>
       {helperText ? (
         <StyledHelperText error={error}>{helperText}</StyledHelperText>
