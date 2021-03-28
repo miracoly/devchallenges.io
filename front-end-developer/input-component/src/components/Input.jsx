@@ -93,7 +93,15 @@ const getRandomInt = (min, max) => {
 };
 
 const Input = (props) => {
-  const { children, error, disabled, helperText, startIcon, endIcon } = props;
+  const {
+    children,
+    value,
+    error,
+    disabled,
+    helperText,
+    startIcon,
+    endIcon,
+  } = props;
   const id = getRandomInt(10000000, 99999999);
   return (
     <Container error={error}>
@@ -107,6 +115,7 @@ const Input = (props) => {
           error={error}
           disabled={disabled}
           id={id}
+          value={value}
         />
         {startIcon ? <StartIcon>{startIcon}</StartIcon> : null}
         {endIcon ? <EndIcon>{endIcon}</EndIcon> : null}

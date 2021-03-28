@@ -18,6 +18,7 @@ function App() {
         {"<Input error startIcon='add_task' />"}
       </Input>
       <Input endIcon="face">{"<Input endIcon='face' />"}</Input>
+      <Input value="Text">{"<Input value='Text' />"}</Input>
     </div>
   );
 }
