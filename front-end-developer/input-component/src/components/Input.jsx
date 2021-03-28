@@ -70,9 +70,7 @@ const Container = styled.div`
     }
   }
   & input:focus {
-    & {
-      color: ${(props) => (props.error ? colors.error : colors.seconday)};
-    }
+    color: ${(props) => (props.error ? colors.error : colors.seconday)};
     border-color: ${(props) => (props.error ? colors.error : colors.seconday)};
   }
 `;

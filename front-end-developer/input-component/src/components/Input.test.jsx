@@ -39,3 +39,13 @@ test("Display start Icon", () => {
   expect(input.placeholder).not.toBe("");
   expect(icon).toBeDefined();
 });
+
+test("Display end Icon", () => {
+  render(<Input endIcon="face" />);
+  const input = screen.getByRole("textbox");
+  const label = screen.getByTestId("label");
+  const icon = screen.getByText("face");
+  expect(label).toBeDefined();
+  expect(input.placeholder).not.toBe("");
+  expect(icon).toBeDefined();
+});
