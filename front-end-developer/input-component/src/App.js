@@ -4,6 +4,7 @@ import "./App.css";
 function App() {
   return (
     <main>
+      <h1>Input Component</h1>
       <div className="container">
         <Input>{"<Input />"}</Input>
         <Input error>{"<Input error />"}</Input>
