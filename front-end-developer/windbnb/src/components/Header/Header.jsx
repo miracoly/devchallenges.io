@@ -1,14 +1,21 @@
-import Logo from "..//Logo/Logo";
+import styled from "styled-components";
+import Container from "../Container/Container";
+import Logo from "../Logo/Logo";
+import Filter from "../Filter/Filter";
+
+const StyledHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 const Header = () => (
-  <header>
-    <Logo logoFile="logo.svg" />
-    <div>
-      <div className="location-filter">Helsinki, Finland</div>
-      <div className="guests-count">Add guests</div>
-      <div className="search">Search</div>
-    </div>
-  </header>
+  <Container>
+    <StyledHeader>
+      <Logo logoFile="logo.svg" />
+      <Filter />
+    </StyledHeader>
+  </Container>
 );
 
 export default Header;
