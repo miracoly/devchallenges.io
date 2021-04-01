@@ -1,20 +1,16 @@
-import styled from "styled-components";
-import Container from "../Container/Container";
+import Container from "../Layout/Container";
 import Logo from "../Logo/Logo";
 import Filter from "../Filter/Filter";
-
-const StyledHeader = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
+import Flex from "../Layout/Flex";
 
 const Header = () => (
   <Container>
-    <StyledHeader>
-      <Logo logoFile="logo.svg" />
-      <Filter />
-    </StyledHeader>
+    <header>
+      <Flex>
+        <Logo logoFile="logo.svg" />
+        <Filter />
+      </Flex>
+    </header>
   </Container>
 );
 

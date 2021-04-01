@@ -1,12 +1,17 @@
-import Container from "../Container/Container";
-import Headline1 from "../Standard/Headline1";
-import Span from "../Standard/Span";
+import styled from "styled-components";
+import stays from "../../utils/stays";
+import LocationCard from "../LocationCard/LocationCard";
 
-const LocationCardContainer = () => (
-  <Container>
-    <Headline1>Stays in Finland</Headline1>
-    <Span>12+ stays</Span>
-  </Container>
-);
+const locationCards = stays.map((location) => (
+  <LocationCard key={location.title} {...location} />
+));
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+`;
+
+const LocationCardContainer = () => <Grid>{locationCards}</Grid>;
 
 export default LocationCardContainer;
