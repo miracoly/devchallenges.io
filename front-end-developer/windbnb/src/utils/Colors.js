@@ -9,6 +9,7 @@ const Colors = {
   text: {
     primary: "#333333",
     secondary: "#BDBDBD",
+    tertiary: "#4F4F4F",
   },
   shadow: {
     boxShadow: "rgba(0, 0, 0, 0.1)",

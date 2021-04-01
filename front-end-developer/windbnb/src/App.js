@@ -6,6 +6,7 @@ import Span from "./components/Standard/Span";
 import Flex from "./components/Layout/Flex";
 import "./App.css";
 import Container from "./components/Layout/Container";
+import { useState } from "react";
 
 const BlockSpan = styled(Span)`
   display: inline-block;
@@ -13,14 +14,27 @@ const BlockSpan = styled(Span)`
 `;
 
 function App() {
+  const [locationSearch, setLocationSearch] = useState("");
+  const [guestCount, setGuestCount] = useState(0);
+
+  const submitFilterSearch = (e) => {
+    e.preventDefault();
+    const currentLocationSearch = e.target[0].value;
+    const currentGuestCount = e.target[1].value;
+    setLocationSearch(currentLocationSearch);
+    setGuestCount(parseInt(currentGuestCount));
+  };
+
   return (
     <div className="app">
-      <Header />
+      <Header submitFilterSearch={submitFilterSearch} />
       <Container>
         <main>
           <Flex>
             <H1>Stays in Finland</H1>
-            <BlockSpan>12+ stays</BlockSpan>
+            <BlockSpan>
+              {locationSearch} 12+ stays {guestCount}
+            </BlockSpan>
           </Flex>
           <Container>
             <LocationCardContainer />

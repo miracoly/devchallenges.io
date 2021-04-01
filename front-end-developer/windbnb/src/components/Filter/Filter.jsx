@@ -51,7 +51,7 @@ const FilterInput = styled(FilterElement).attrs((props) => ({
 `;
 
 const FilterButton = styled(FilterElement).attrs((props) => ({
-  type: "button",
+  type: "submit",
 }))`
   min-width: 50px;
   font-size: 24px;
@@ -62,8 +62,8 @@ const FilterButton = styled(FilterElement).attrs((props) => ({
   cursor: pointer;
 `;
 
-const Filter = () => (
-  <FilterForm>
+const Filter = ({ submitFilterSearch }) => (
+  <FilterForm onSubmit={submitFilterSearch}>
     <FilterInput placeholder="Location" />
     <FilterInput middle placeholder="Add Guests" />
     <FilterButton value="search" />
