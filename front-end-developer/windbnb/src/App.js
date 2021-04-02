@@ -7,7 +7,8 @@ import Flex from "./components/Layout/Flex";
 import "./App.css";
 import Container from "./components/Layout/Container";
 import { useState } from "react";
-import stays from "./utils/stays";
+import staysData from "./utils/staysData";
+import Stays from "./utils/Stays";
 
 const BlockSpan = styled(Span)`
   display: inline-block;
@@ -15,36 +16,19 @@ const BlockSpan = styled(Span)`
 `;
 
 function App() {
-  const [locationSearch, setLocationSearch] = useState("");
-  const [guestCount, setGuestCount] = useState(0);
+  const initialStays = new Stays(...staysData);
+  const [filteredStays, setFilteredStays] = useState(new Stays(...staysData));
+  console.log("filteredStays:", filteredStays);
 
   const submitFilterSearch = (e) => {
     e.preventDefault();
-    const currentLocationSearch = e.target[0].value.toLowerCase();
-    const currentGuestCount = e.target[1].value.toLowerCase();
-    setLocationSearch(currentLocationSearch);
-    setGuestCount(parseInt(currentGuestCount));
+    const currentLocation = e.target[0].value;
+    const currentGuests = e.target[1].value;
+    setFilteredStays(getFilteredStays(currentLocation, currentGuests));
   };
 
-  const getFilteredStaysData = () => {
-    let filteredStays = getFilteredStaysByLocation(stays);
-    filteredStays = getFilteredStaysByGuests(filteredStays);
-    return filteredStays;
-  };
-
-  const getFilteredStaysByLocation = (stays) =>
-    stays.filter(
-      (location) =>
-        location.city.toLowerCase().includes(locationSearch) ||
-        location.country.toLowerCase().includes(locationSearch)
-    );
-
-  const getFilteredStaysByGuests = (stays) =>
-    guestCount
-      ? stays.filter(
-          (location) => location.beds >= guestCount || location.beds === null
-        )
-      : stays;
+  const getFilteredStays = (location, guests) =>
+    initialStays.filterByLocation(location).filterByGuests(guests);
 
   return (
     <div className="app">
@@ -53,12 +37,10 @@ function App() {
         <main>
           <Flex>
             <H1>Stays in Finland</H1>
-            <BlockSpan>
-              {locationSearch} 12+ stays {guestCount}
-            </BlockSpan>
+            <BlockSpan>{filteredStays.length} stays</BlockSpan>
           </Flex>
           <Container>
-            <LocationCardContainer filteredStays={getFilteredStaysData()} />
+            <LocationCardContainer filteredStays={filteredStays} />
           </Container>
         </main>
       </Container>
