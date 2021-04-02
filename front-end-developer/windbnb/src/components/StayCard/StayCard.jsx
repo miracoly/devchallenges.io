@@ -5,7 +5,7 @@ import Flex from "../Layout/Flex";
 import { H2 } from "../Standard/Headlines";
 import Span from "../Standard/Span";
 
-const LocationImage = styled.div`
+const StayImage = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-repeat: no-repeat;
@@ -37,9 +37,9 @@ const SuperHost = styled.span`
   text-transform: uppercase;
 `;
 
-const LocationCard = ({ title, type, beds, rating, photo, superHost }) => (
+const StayCard = ({ title, type, beds, rating, photo, superHost }) => (
   <div>
-    <LocationImage url={photo} alt="location" />
+    <StayImage url={photo} alt="location" />
     <Flex margin="10px 0">
       {superHost ? <SuperHost>Super Host</SuperHost> : null}
       <Span>{type}</Span>
@@ -52,4 +52,4 @@ const LocationCard = ({ title, type, beds, rating, photo, superHost }) => (
   </div>
 );
 
-export default LocationCard;
+export default StayCard;

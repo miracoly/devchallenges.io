@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Header from "./components/Header/Header";
-import LocationCardContainer from "./components/LocationCardContainer/LocationCardContainer";
+import StayCardContainer from "./components/StayCardContainer/StayCardContainer";
 import H1 from "./components/Standard/Headlines";
 import Span from "./components/Standard/Span";
 import Flex from "./components/Layout/Flex";
@@ -18,12 +18,11 @@ const BlockSpan = styled(Span)`
 function App() {
   const initialStays = new Stays(...staysData);
   const [filteredStays, setFilteredStays] = useState(initialStays);
-  console.log("filteredStays:", filteredStays);
 
-  const submitFilterSearch = (e) => {
-    e.preventDefault();
-    const currentLocation = e.target[0].value;
-    const currentGuests = e.target[1].value;
+  const submitFilterSearch = (event) => {
+    event.preventDefault();
+    const currentLocation = event.target[0].value;
+    const currentGuests = event.target[1].value;
     setFilteredStays(getFilteredStays(currentLocation, currentGuests));
   };
 
@@ -40,7 +39,7 @@ function App() {
             <BlockSpan>{filteredStays.length} stays</BlockSpan>
           </Flex>
           <Container>
-            <LocationCardContainer filteredStays={filteredStays} />
+            <StayCardContainer filteredStays={filteredStays} />
           </Container>
         </main>
       </Container>
