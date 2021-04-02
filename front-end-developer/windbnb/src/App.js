@@ -7,6 +7,7 @@ import Flex from "./components/Layout/Flex";
 import "./App.css";
 import Container from "./components/Layout/Container";
 import { useState } from "react";
+import stays from "./utils/stays";
 
 const BlockSpan = styled(Span)`
   display: inline-block;
@@ -19,11 +20,31 @@ function App() {
 
   const submitFilterSearch = (e) => {
     e.preventDefault();
-    const currentLocationSearch = e.target[0].value;
-    const currentGuestCount = e.target[1].value;
+    const currentLocationSearch = e.target[0].value.toLowerCase();
+    const currentGuestCount = e.target[1].value.toLowerCase();
     setLocationSearch(currentLocationSearch);
     setGuestCount(parseInt(currentGuestCount));
   };
+
+  const getFilteredStaysData = () => {
+    let filteredStays = getFilteredStaysByLocation(stays);
+    filteredStays = getFilteredStaysByGuests(filteredStays);
+    return filteredStays;
+  };
+
+  const getFilteredStaysByLocation = (stays) =>
+    stays.filter(
+      (location) =>
+        location.city.toLowerCase().includes(locationSearch) ||
+        location.country.toLowerCase().includes(locationSearch)
+    );
+
+  const getFilteredStaysByGuests = (stays) =>
+    guestCount
+      ? stays.filter(
+          (location) => location.beds >= guestCount || location.beds === null
+        )
+      : stays;
 
   return (
     <div className="app">
@@ -37,7 +58,7 @@ function App() {
             </BlockSpan>
           </Flex>
           <Container>
-            <LocationCardContainer />
+            <LocationCardContainer filteredStays={getFilteredStaysData()} />
           </Container>
         </main>
       </Container>

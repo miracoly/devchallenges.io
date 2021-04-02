@@ -1,10 +1,5 @@
 import styled from "styled-components";
-import stays from "../../utils/stays";
 import LocationCard from "../LocationCard/LocationCard";
-
-const locationCards = stays.map((location) => (
-  <LocationCard key={location.title} {...location} />
-));
 
 const Grid = styled.div`
   display: grid;
@@ -12,6 +7,11 @@ const Grid = styled.div`
   gap: 30px;
 `;
 
-const LocationCardContainer = () => <Grid>{locationCards}</Grid>;
+const LocationCardContainer = ({ filteredStays }) => {
+  const locationCards = filteredStays.map((location) => (
+    <LocationCard key={location.title} {...location} />
+  ));
+  return <Grid>{locationCards}</Grid>;
+};
 
 export default LocationCardContainer;
