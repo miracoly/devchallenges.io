@@ -3,12 +3,12 @@ import Logo from "../Logo/Logo";
 import Filter from "../Filter/Filter";
 import Flex from "../Layout/Flex";
 
-const Header = ({ submitFilterSearch }) => (
+const Header = (props) => (
   <Container>
     <header>
       <Flex>
         <Logo logoFile="logo.svg" />
-        <Filter submitFilterSearch={submitFilterSearch} />
+        <Filter {...props} />
       </Flex>
     </header>
   </Container>

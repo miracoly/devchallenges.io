@@ -1,18 +1,28 @@
+import { uniq } from "lodash";
+
 class Stays extends Array {
-  filterByLocation = (location) =>
+  filterByLocation = (search) =>
     new Stays(
       ...this.filter(
         (stay) =>
-          stay.city.toLowerCase().includes(location.toLowerCase()) ||
-          stay.country.toLowerCase().includes(location.toLowerCase())
+          stay.city.toLowerCase().includes(search.toLowerCase()) ||
+          stay.country.toLowerCase().includes(search.toLowerCase())
       )
     );
 
-  filterByGuests = (guests) =>
+  filterByBeds = (guestCount) =>
     new Stays(
-      ...(guests
-        ? this.filter((stay) => stay.beds >= guests || stay.beds === null)
+      ...(guestCount
+        ? this.filter((stay) => stay.beds >= guestCount || stay.beds === null)
         : this)
+    );
+
+  extractMatchingCities = (search) =>
+    uniq(
+      this.filterByLocation(search).map((stay) => {
+        const { city, country } = stay;
+        return city + ", " + country;
+      })
     );
 }
 

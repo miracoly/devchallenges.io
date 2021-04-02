@@ -1,5 +1,7 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Colors from "../../utils/Colors";
+import FilterOverlay from "../FilterOverlay/FilterOverlay";
 
 const FilterForm = styled.form`
   width: fit-content;
@@ -62,12 +64,48 @@ const FilterButton = styled(FilterElement).attrs((props) => ({
   cursor: pointer;
 `;
 
-const Filter = ({ submitFilterSearch }) => (
-  <FilterForm onSubmit={submitFilterSearch}>
-    <FilterInput placeholder="Location" />
-    <FilterInput middle placeholder="Add Guests" />
-    <FilterButton value="search" />
-  </FilterForm>
-);
+const Filter = ({ submitFilterSearch, filteredStays }) => {
+  const [isOverlayShown, setIsOverlayShown] = useState(false);
+  const [locationSearch, setLocationSearch] = useState("");
+  const [guestSearch, setGuestSearch] = useState("");
+
+  const showOverlay = () => setIsOverlayShown(true);
+  const hideOverlay = () => setIsOverlayShown(false);
+
+  return (
+    <>
+      <FilterForm
+        onSubmit={(e) => {
+          submitFilterSearch(e);
+          hideOverlay();
+        }}
+        onFocus={showOverlay}
+        onChange={showOverlay}
+      >
+        <FilterInput
+          onChange={(e) => setLocationSearch(e.target.value.toLowerCase())}
+          placeholder="Location"
+        />
+        <FilterInput
+          onChange={(e) => setGuestSearch(e.target.value.toLowerCase())}
+          middle
+          placeholder="Add Guests"
+        />
+        <FilterButton value="search" />
+      </FilterForm>
+      {isOverlayShown ? (
+        <FilterOverlay
+          {...{
+            submitFilterSearch,
+            setLocationSearch,
+            hideOverlay,
+            locationSearch,
+            guestSearch,
+          }}
+        />
+      ) : null}
+    </>
+  );
+};
 
 export default Filter;

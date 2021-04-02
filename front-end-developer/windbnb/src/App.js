@@ -19,19 +19,20 @@ function App() {
   const initialStays = new Stays(...staysData);
   const [filteredStays, setFilteredStays] = useState(initialStays);
 
-  const submitFilterSearch = (event) => {
-    event.preventDefault();
-    const currentLocation = event.target[0].value;
-    const currentGuests = event.target[1].value;
+  const submitFilterSearch = (e) => {
+    e.preventDefault();
+    console.log(e);
+    const currentLocation = e.target[0].value;
+    const currentGuests = e.target[1].value;
     setFilteredStays(getFilteredStays(currentLocation, currentGuests));
   };
 
   const getFilteredStays = (location, guests) =>
-    initialStays.filterByLocation(location).filterByGuests(guests);
+    initialStays.filterByLocation(location).filterByBeds(guests);
 
   return (
     <div className="app">
-      <Header submitFilterSearch={submitFilterSearch} />
+      <Header {...{ filteredStays, submitFilterSearch }} />
       <Container>
         <main>
           <Flex>
@@ -39,7 +40,7 @@ function App() {
             <BlockSpan>{filteredStays.length} stays</BlockSpan>
           </Flex>
           <Container>
-            <StayCardContainer filteredStays={filteredStays} />
+            <StayCardContainer {...{ filteredStays }} />
           </Container>
         </main>
       </Container>
