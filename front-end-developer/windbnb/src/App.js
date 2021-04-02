@@ -17,7 +17,7 @@ const BlockSpan = styled(Span)`
 
 function App() {
   const initialStays = new Stays(...staysData);
-  const [filteredStays, setFilteredStays] = useState(new Stays(...staysData));
+  const [filteredStays, setFilteredStays] = useState(initialStays);
   console.log("filteredStays:", filteredStays);
 
   const submitFilterSearch = (e) => {
