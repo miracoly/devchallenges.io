@@ -67,7 +67,6 @@ const FilterButton = styled(FilterElement).attrs((props) => ({
 const Filter = ({ submitFilterSearch, filteredStays }) => {
   const [isOverlayShown, setIsOverlayShown] = useState(false);
   const [locationSearch, setLocationSearch] = useState("");
-  const [guestSearch, setGuestSearch] = useState("");
 
   const showOverlay = () => setIsOverlayShown(true);
   const hideOverlay = () => setIsOverlayShown(false);
@@ -93,11 +92,7 @@ const Filter = ({ submitFilterSearch, filteredStays }) => {
           onChange={(e) => setLocationSearch(e.target.value.toLowerCase())}
           placeholder="Location"
         />
-        <FilterInput
-          onChange={(e) => setGuestSearch(e.target.value.toLowerCase())}
-          middle
-          placeholder="Add Guests"
-        />
+        <FilterInput middle placeholder="Add Guests" />
         <FilterButton value="search" />
       </FilterForm>
       {isOverlayShown ? (
