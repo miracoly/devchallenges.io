@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Colors from "../../utils/Colors";
 import FilterOverlay from "../FilterOverlay/FilterOverlay";
@@ -72,6 +72,12 @@ const Filter = ({ submitFilterSearch, filteredStays }) => {
   const showOverlay = () => setIsOverlayShown(true);
   const hideOverlay = () => setIsOverlayShown(false);
 
+  const locationInput = useRef();
+
+  useEffect(() => {
+    locationInput.current.value = locationSearch;
+  }, [locationSearch]);
+
   return (
     <>
       <FilterForm
@@ -83,6 +89,7 @@ const Filter = ({ submitFilterSearch, filteredStays }) => {
         onChange={showOverlay}
       >
         <FilterInput
+          ref={locationInput}
           onChange={(e) => setLocationSearch(e.target.value.toLowerCase())}
           placeholder="Location"
         />
@@ -96,11 +103,9 @@ const Filter = ({ submitFilterSearch, filteredStays }) => {
       {isOverlayShown ? (
         <FilterOverlay
           {...{
-            submitFilterSearch,
             setLocationSearch,
             hideOverlay,
             locationSearch,
-            guestSearch,
           }}
         />
       ) : null}

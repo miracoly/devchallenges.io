@@ -8,13 +8,14 @@ import Span from "../Standard/Span";
 const StyledDiv = styled.div`
   background: ${Colors.light.primary};
   position: absolute;
+  padding-top: 10px;
   top: 85px;
   left: 0;
   width: 100vw;
   height: 33vh;
   z-index: 99999;
   display: grid;
-  place-items: center;
+  place-items: start center;
 `;
 
 const DarkOverlay = styled.div`
@@ -40,12 +41,7 @@ const ListIcon = styled(Icon)`
 
 const stays = new Stays(...staysData);
 
-const FilterOverlay = ({
-  setLocationSearch,
-  hideOverlay,
-  locationSearch,
-  guestSearch,
-}) => (
+const FilterOverlay = ({ setLocationSearch, hideOverlay, locationSearch }) => (
   <>
     <StyledDiv>
       <ul>
@@ -54,7 +50,7 @@ const FilterOverlay = ({
             key={i}
             onClick={(e) => {
               setLocationSearch(city.match(/[\w\s]+/i)[0]);
-              console.log(city.match(/[\w\s]+/i)[0]);
+              hideOverlay();
             }}
           >
             <ListIcon>place</ListIcon>
